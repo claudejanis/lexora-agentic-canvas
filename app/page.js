@@ -25,11 +25,22 @@ export default function Home() {
         .grid {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
-          grid-template-rows: auto auto auto;
+          grid-template-areas:
+            "biz role context"
+            "tasks reasoning tooling"
+            "memory reasoning interaction";
           gap: 16px;
           max-width: 1400px;
           margin: 0 auto;
         }
+
+        .card-biz { grid-area: biz; }
+        .card-role { grid-area: role; }
+        .card-context { grid-area: context; }
+        .card-tasks { grid-area: tasks; }
+        .card-tooling { grid-area: tooling; }
+        .card-memory { grid-area: memory; }
+        .card-interaction { grid-area: interaction; }
 
         .card {
           background: #ffffff;
@@ -114,8 +125,7 @@ export default function Home() {
 
         /* Center reasoning card */
         .reasoning-card {
-          grid-column: 2;
-          grid-row: 2 / 4;
+          grid-area: reasoning;
           background: #fffde7;
           border: 2px solid #f9a825;
           border-radius: 8px;
@@ -348,10 +358,15 @@ export default function Home() {
         @media (max-width: 1024px) {
           .grid {
             grid-template-columns: 1fr;
-          }
-          .reasoning-card {
-            grid-column: 1;
-            grid-row: auto;
+            grid-template-areas:
+              "biz"
+              "role"
+              "context"
+              "tasks"
+              "reasoning"
+              "tooling"
+              "memory"
+              "interaction";
           }
         }
       `}</style>
@@ -363,7 +378,7 @@ export default function Home() {
           {/* Row 1 */}
 
           {/* 1. Business Objective */}
-          <div className="card">
+          <div className="card card-biz">
             <div className="card-header header-red">
               <span className="num">1</span> Business Objective
             </div>
@@ -393,7 +408,7 @@ export default function Home() {
           </div>
 
           {/* 2. Agent Role Definition */}
-          <div className="card">
+          <div className="card card-role">
             <div className="card-header header-purple">
               <span className="num">2</span> Agent Role Definition
             </div>
@@ -429,7 +444,7 @@ export default function Home() {
           </div>
 
           {/* 4. Context Engineering */}
-          <div className="card">
+          <div className="card card-context">
             <div className="card-header header-teal">
               <span className="num">4</span> Context Engineering
             </div>
@@ -462,7 +477,7 @@ export default function Home() {
           </div>
 
           {/* 3. Tasks & Capabilities */}
-          <div className="card">
+          <div className="card card-tasks">
             <div className="card-header header-green">
               <span className="num">3</span> Tasks & Capabilities
             </div>
@@ -544,7 +559,7 @@ export default function Home() {
           </div>
 
           {/* 6. Tooling & Integrations */}
-          <div className="card">
+          <div className="card card-tooling">
             <div className="card-header header-blue">
               <span className="num">6</span> Tooling & Integrations
             </div>
@@ -568,7 +583,7 @@ export default function Home() {
           </div>
 
           {/* 5. Memory Design */}
-          <div className="card">
+          <div className="card card-memory">
             <div className="card-header header-orange">
               <span className="num">5</span> Memory Design
             </div>
@@ -596,9 +611,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Empty cell for spacing (reasoning card spans 2 rows) */}
           {/* 7. Human Interaction Model */}
-          <div className="card">
+          <div className="card card-interaction">
             <div className="card-header header-teal">
               <span className="num">7</span> Human Interaction Model
             </div>
