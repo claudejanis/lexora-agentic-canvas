@@ -1,12 +1,12 @@
 export const metadata = {
-  title: 'Lexora Agentic Canvas',
+  title: 'Agentic AI Architecture & Context Engineering Canvas — Lexora ERP',
   description: 'Agentic AI Architecture & Context Engineering Canvas for Lexora ERP',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, fontFamily: 'system-ui, -apple-system, sans-serif', backgroundColor: '#0a0a0a', color: '#ededed' }}>
+      <body style={{ margin: 0, padding: 0 }}>
         {children}
       </body>
     </html>
